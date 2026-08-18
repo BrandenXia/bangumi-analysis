@@ -16,7 +16,7 @@ Some analysis based on [Bangumi](https://bgm.tv) [public data](https://github.co
 
 ### Score vs Age Analysis
 
-![Score vs age](./results/score_vs_age.png)
+![Score vs age](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/score_vs_age_analysis.png)
 
 ```text
 ------------------------------
