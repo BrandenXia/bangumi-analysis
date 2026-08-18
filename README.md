@@ -19,6 +19,7 @@ Some analysis based on [Bangumi](https://bgm.tv) [public data](https://github.co
    - [`advance_investigate_scores.py`](./advance_investigate_scores.py) for
      further investigation on the relationship between scores and age, taking
      more factors into consideration.
+     (Written by Gemini 3.1 Pro Preview)
 
      Prompt:
      1. don't just consider the score, it's only to 1 decimal place, calculate
@@ -54,7 +55,7 @@ higher scores. The correlation is not very strong, but it is statistically signi
 While the increase in score is not very large, it's still noticeable in decade-long
 scale.
 
-![Advance score vs age](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/advance_score_analysis.png)
+![Advance score vs age](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/advanced_score_analysis.png)
 
 ```text
 ==================================================
