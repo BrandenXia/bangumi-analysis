@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+DATA_DIR="data"
+DATA_ZIP="data.zip"
+DATA_JSON_URL="https://raw.githubusercontent.com/bangumi/Archive/refs/heads/master/aux/latest.json"
+
+echo "Start downloading data..."
+DOWNLOAD_URL=$(curl -sS "$DATA_JSON_URL" | jq -r '.browser_download_url')
+echo "Downloading from: $DOWNLOAD_URL"
+curl -L -o "$DATA_ZIP" "$DOWNLOAD_URL"
+7z x "$DATA_ZIP" -o"$DATA_DIR" -y
+rm "$DATA_ZIP"
+echo "Data downloaded and extracted to $DATA_DIR"
