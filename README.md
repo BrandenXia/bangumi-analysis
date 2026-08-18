@@ -12,6 +12,10 @@ Some analysis based on [Bangumi](https://bgm.tv) [public data](https://github.co
      the scores are influenced by the age of the subjects.
      (Written by Gemini 3.1 Pro Preview)
 
+     Prompt: write a script that investigate on whether older subjects tends to
+     get higher scores, use visualization and statistical analysis to convey the
+     result
+
 ## Results
 
 ### Score vs Age Analysis
