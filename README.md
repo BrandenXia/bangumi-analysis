@@ -43,6 +43,8 @@ Some analysis based on [Bangumi](https://bgm.tv) [public data](https://github.co
 
 ## Results
 
+(Most of the Chinese text corresponds to the English text above it)
+
 ### Score Analysis
 
 ![Score vs age](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/score_vs_age_analysis.png)
@@ -60,10 +62,28 @@ There is a statistically significant POSITIVE relationship.
 Older subjects DO tend to get higher scores (approx +0.0324 points per year of age).
 ```
 
-Statistical test shown that, it's every likely that older subjects tend to give
-higher scores. The correlation is not very strong, but it is statistically significant.
-While the increase in score is not very large, it's still noticeable in decade-long
-scale.
+The p-value here is small enough that it's statistically significant. The result
+of linear regression indicates that for every additional year of age, the score
+increases by 0.0324 points. Although the coefficient is not large, over several
+decades, this can be quite significant.
+
+可以看到，这里p-value非常小（已经underflow到0了），可以肯定统计意义上确实是有关联的，线性回归给出的结论是作品年龄每多一年伴随着0.0324的分数增加，虽然系数不大，但在几十年的跨度上相当显著
+
+So the conclusion is that there is indeed a trend of biasing towards older works...?
+
+所以结论是bangumi确实在评分上倾向于老作品…吗？
+
+As it's often said, correlation does not imply causation. Regarding that Bangumi
+is created in 2009, a reasonable guess is that there's survivorship bias, meaning
+that older works that are still remembered and rated are likely to be the better
+ones, while the poorly-rated older works have been forgotten. This certain might
+happened, so I asked Gemini to do more work.
+
+统计意义上的关联并不代表因果上相关，这时候我想到了bangumi是2009年建立的，猜想可能是因为2009年前令人印象深刻的作品才会被评分导致的幸存者偏差，于是继续让gemini写
+
+So there's the following results:
+
+于是有了这部分结论：
 
 ![Advance score vs age](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/advanced_score_analysis.png)
 
@@ -83,10 +103,11 @@ Spearman Correlation (Age vs Score): 0.2749 (p=0.0000e+00)
 Spearman Correlation (Age vs Std Dev): -0.1134 (p=5.6432e-58)
 ```
 
-A more detailed analysis was conducted to account for the creation date of
-Bangumi and the number of votes. The results indicate that there is a significant
-difference in scores between subjects created before and after 2009, suggesting
-a potential survivorship bias or nostalgia effect.
+As we can see, the t-test shows a significant difference in the distributions
+before and after 2009, indicating that the higher scores for older works may not
+be due to intentional bias but rather influenced by survivorship bias.
+
+可以看到，通过t-test，以2009为界的分布确实是有明显差异的，也就是说并不一定是评分上故意偏向老番，也受到了幸存者偏差的影响
 
 ![Post 2009 multidimensional analysis](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/bangumi_post_2009_multidimensional.png)
 
@@ -106,8 +127,11 @@ R-squared: 0.0838
 -> Popularity : Subjects become less polarized (StdDev changes by -0.0837) as popularity 10x's (p=6.5920e-121).
 ```
 
-After removing the pre-2009 subjects, a multivariate regression analysis was
-conducted to isolate the effects of year, popularity, and category on scores and
-polarization. The results indicate that more recent subjects tend to receive
-lower scores, while increased popularity is associated with higher scores and
-reduced polarization.
+The results shows that the coefficient for time trend is even larger than before,
+while higher popularity (given enough votes) means higher scores, and for every
+10x increase in the number of votes, the standard deviation decreases
+(meaning more consistent ratings). Additionally, we can see that there are many
+shows with a few hundred votes and scores concentrated between 6.5-7.5, likely
+due to the large number of similar, templated animes (e.g., isekai animes).
+
+结果是时间上影响的系数反而比之前更大了，同时更高人气（在人数足够的基础上）意味着分数增加，以及评分数量每增加10倍大概会对应标准差减少（也就是一致好评），同时可以看到，大概是同质类模版番（比如说异世界厕纸）的原因，有很多人数在几百人、评分集中在6.5-7.5分之间的番
