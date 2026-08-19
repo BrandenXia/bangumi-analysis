@@ -189,3 +189,5 @@ There isn't much to say about this analysis. It's pretty straightforward.
 However, a further direction that might be interesting is to investigate on how
 each tags affects each other and whether the tags' effect change as the date of
 creation changes.
+
+这部分没什么好说的，就是字面意思，不过可以考虑进一步分析各个标签之间的关系，以及对于不同年代的番，标签对评分的影响是否会发生变化
