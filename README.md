@@ -31,9 +31,19 @@ Some analysis based on [Bangumi](https://bgm.tv) [public data](https://github.co
      4. consider more aspect carefully as needed
      5. more plots to reveal different aspects of the data
 
+   - [`investigate_post_2009.py`](./investigate_post_2009.py) for investigating
+     multidimensional analysis of factors that might influence the scores of
+     subjects created after 2009.
+     (Written by Gemini 3.1 Pro Preview)
+
+     Prompt: after running the script, it's confirmed that there's a difference
+     between the distributions before and after 2009, however a further research
+     would be investing on the trend after 2009, the effect on popularity on
+     polarity and scores, and more multi-dimensional factors
+
 ## Results
 
-### Score vs Age Analysis
+### Score Analysis
 
 ![Score vs age](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/score_vs_age_analysis.png)
 
@@ -77,3 +87,27 @@ A more detailed analysis was conducted to account for the creation date of
 Bangumi and the number of votes. The results indicate that there is a significant
 difference in scores between subjects created before and after 2009, suggesting
 a potential survivorship bias or nostalgia effect.
+
+![Post 2009 multidimensional analysis](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/bangumi_post_2009_multidimensional.png)
+
+```text
+============================================================
+MULTIVARIATE REGRESSION ANALYSIS (Post-2009)
+============================================================
+Goal: Isolate the effect of Year, Popularity, and Category.
+
+--- MODEL 1: What drives HIGHER SCORES? ---
+R-squared: 0.3415
+-> Time Trend : Score decreases by 0.0420 points every year (p=1.6245e-255).
+-> Popularity : Score increases by 0.6442 points for every 10x increase in votes (p=0.0000e+00).
+
+--- MODEL 2: What drives POLARIZATION (Haters vs Fanboys)? ---
+R-squared: 0.0838
+-> Popularity : Subjects become less polarized (StdDev changes by -0.0837) as popularity 10x's (p=6.5920e-121).
+```
+
+After removing the pre-2009 subjects, a multivariate regression analysis was
+conducted to isolate the effects of year, popularity, and category on scores and
+polarization. The results indicate that more recent subjects tend to receive
+lower scores, while increased popularity is associated with higher scores and
+reduced polarization.
