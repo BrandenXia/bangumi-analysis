@@ -198,3 +198,13 @@ So there's the following two analysis:
 
 ![Anime tag synergy](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/anime_tag_synergy.png)
 ![Anime tags over time](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/anime_tags_over_time.png)
+The interesting part is the analysis over years. If we ignore the data for 2026
+(as the year is not over yet), we can see that except for web and OVA, which have
+large fluctuations, the overall trend of other tags is consistent with the
+previous analysis on years. At the same time, OVA production has significantly
+decreased since 2014, while other tags have remained relatively stable in terms
+of quantity. The novel adaptation genre has been quite popular from 2011 to 2017,
+and besides that, the only tag with significant fluctuations is the theatrical
+version, which is also reasonable.
+
+比较有意思的是对于年份的分析，先不看26年的数据（因为今年还没结束，数据不全），可以看到除了web和OVA这两个是起伏比较大的，其他tag总体趋势和上面对年份的分析是一致的。同时，OVA从14年开始产出明显减少了，其他tag数量上倒是一致相对稳定。小说改这个题材在11年到17年都是人气是比较高的，除此之外波动比较大的只有剧场版这个tag，也是比较合理的。
