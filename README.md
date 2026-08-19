@@ -41,6 +41,13 @@ Some analysis based on [Bangumi](https://bgm.tv) [public data](https://github.co
      would be investing on the trend after 2009, the effect on popularity on
      polarity and scores, and more multi-dimensional factors
 
+   - [`investigate_tags.py`](./investigate_tags.py) for investigating the
+     relationship between meta_tags and different factors of a subject
+     (popularity, score, stdev, etc.)
+     (Written by Gemini 3.1 Pro Preview)
+
+     Prompt: work on analysis of the relationship of meta_tags to different factors of a subject (popularity, score, stdev, etc.)
+
 ## Results
 
 (Most of the Chinese text corresponds to the English text above it)
@@ -135,3 +142,50 @@ shows with a few hundred votes and scores concentrated between 6.5-7.5, likely
 due to the large number of similar, templated animes (e.g., isekai animes).
 
 结果是时间上影响的系数反而比之前更大了，同时更高人气（在人数足够的基础上）意味着分数增加，以及评分数量每增加10倍大概会对应标准差减少（也就是一致好评），同时可以看到，大概是同质类模版番（比如说异世界厕纸）的原因，有很多人数在几百人、评分集中在6.5-7.5分之间的番
+
+### Metatags Analysis
+
+![Anime tags analysis](https://raw.githubusercontent.com/BrandenXia/bangumi-analysis/refs/heads/main/results/anime_metatags_analysis.png)
+
+```text
+--- TOP 10 HIGHEST RATED ANIME TAGS (By Average Score) ---
+美国                   | Score:  7.01 | Subjects:   322 | Median Votes:    340
+欧美                   | Score:  6.92 | Subjects:   674 | Median Votes:    177
+日常                   | Score:  6.88 | Subjects:   486 | Median Votes:   2472
+科幻                   | Score:  6.83 | Subjects:   664 | Median Votes:    990
+音乐                   | Score:  6.74 | Subjects:   127 | Median Votes:   1178
+运动                   | Score:  6.73 | Subjects:   140 | Median Votes:    852
+机战                   | Score:  6.72 | Subjects:   192 | Median Votes:   1122
+百合                   | Score:  6.70 | Subjects:   515 | Median Votes:   1291
+校园                   | Score:  6.68 | Subjects:   545 | Median Votes:   2551
+剧场版                  | Score:  6.66 | Subjects:  1734 | Median Votes:    364
+
+--- TOP 10 MOST POLARIZED ANIME TAGS (By Average Standard Deviation) ---
+玄幻                   | StDev:  1.52 | Score:  6.30 | Subjects:   124
+R18                  | StDev:  1.51 | Score:  5.73 | Subjects:   480
+中国                   | StDev:  1.41 | Score:  6.17 | Subjects:   929
+OVA                  | StDev:  1.38 | Score:  6.04 | Subjects:  2466
+WEB                  | StDev:  1.35 | Score:  6.17 | Subjects:  1155
+穿越                   | StDev:  1.35 | Score:  5.82 | Subjects:   143
+游戏改                  | StDev:  1.33 | Score:  6.07 | Subjects:   882
+子供向                  | StDev:  1.33 | Score:  6.46 | Subjects:   224
+音乐                   | StDev:  1.31 | Score:  6.74 | Subjects:   127
+小说改                  | StDev:  1.30 | Score:  6.29 | Subjects:  1196
+
+--- TOP 10 MOST POPULAR ANIME TAGS (By Median Votes per Subject) ---
+悬疑                   | Median Votes:   3170 | Score:  6.48 | Subjects:   173
+推理                   | Median Votes:   2684 | Score:  6.42 | Subjects:   110
+校园                   | Median Votes:   2551 | Score:  6.68 | Subjects:   545
+日常                   | Median Votes:   2472 | Score:  6.88 | Subjects:   486
+恋爱                   | Median Votes:   2148 | Score:  6.51 | Subjects:   660
+后宫                   | Median Votes:   1828 | Score:  6.24 | Subjects:   476
+战斗                   | Median Votes:   1720 | Score:  6.44 | Subjects:  1023
+奇幻                   | Median Votes:   1706 | Score:  6.41 | Subjects:  1055
+小说改                  | Median Votes:   1366 | Score:  6.29 | Subjects:  1196
+百合                   | Median Votes:   1291 | Score:  6.70 | Subjects:   515
+```
+
+There isn't much to say about this analysis. It's pretty straightforward.
+However, a further direction that might be interesting is to investigate on how
+each tags affects each other and whether the tags' effect change as the date of
+creation changes.
